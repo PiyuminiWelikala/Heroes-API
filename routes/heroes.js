@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
                             .select({ name: 1 , deceased: 1 })
                             .countDocuments();*/
     let heroes = await Hero.find()
-    res.send("" + heroes);
+    res.send(heroes);
 });
 
 /*router.get('/:heroId', (req, res) => {
@@ -116,7 +116,7 @@ router.post('/', async (req, res) => {
 
 });*/
 
-router.put('/:heroId', async (req, res) => { //first method
+/*router.put('/:heroId', async (req, res) => { //first method
     let hero = await Hero.findById(req.params.heroId);
 
     if (!hero) {
@@ -131,7 +131,7 @@ router.put('/:heroId', async (req, res) => { //first method
     hero = await hero.save();
     res.send(hero);
 
-});
+});*/
 
 router.put('/:heroId', async (req, res) =>{ //second method
     Hero.findByIdAndUpdate(
