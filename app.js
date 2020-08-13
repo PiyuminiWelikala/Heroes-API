@@ -8,7 +8,7 @@ const authenticator = require('./middlewares/authenticator');
 const email = require('./middlewares/email');
 const auth = require('./routes/auth');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -20,7 +20,12 @@ app.use('/api/users', users);
 app.use('/', home);
 
 mongoose
-    .connect("mongodb://localhost/herodb", { useNewUrlParser: true, useUnifiedTopology: true })    //connection string
+    .connect(
+        "mongodb+srv://user:user%40123@cluster0.fwudo.mongodb.net/herodb?retryWrites=true&w=majority", 
+    { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true 
+    })    //connection string
     .then(() => console.log("Connected to Db successfully ..."))
     .catch(err => console.log("Error has occured while connecting to db : ", err));
 
