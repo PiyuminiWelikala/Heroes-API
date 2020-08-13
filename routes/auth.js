@@ -18,9 +18,9 @@ router.post("/", async (req, res) => {
       //create jwt object 
       let token = jwt.sign({ id: user._id, email: user.email, isAdmin: user.isAdmin }, SECRET_KEY);
   
-      res.send({ token: token });
+      return res.send({ token: token });
     } catch (e) {
-      res.status(500).send(e.message);
+      return res.status(500).send(e.message);
     }
   });
 

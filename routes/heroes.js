@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
     try{
         jwt.verify(token, SECRET_KEY);
     } catch(e) {
-        res.status(400).send("Invalid token");
+        return res.status(400).send("Invalid token");
     }
 
     if (!req.body.heroName) {
