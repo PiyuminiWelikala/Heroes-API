@@ -133,11 +133,11 @@ router.post('/', async (req, res) => {
 
 });*/
 
-router.put('/:heroId', async (req, res) =>{ //second method
-    Hero.findByIdAndUpdate(
+router.put('/:heroId', async (req, res) => {
+    let hero = await Hero.findOneAndUpdate(
         { _id: req.params.heroId },
-        { $set: { name: req.params.heroId } },
-        { new: true, userFindAndModify: false}
+        { $set: { likeCount: req.body.likeCount } },
+        { new: true, useFindAndModify: false }
     );
     res.send(hero);
 });
