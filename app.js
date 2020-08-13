@@ -21,7 +21,7 @@ app.use('/', home);
 
 mongoose
     .connect(
-        "mongodb+srv://user:user%40123@cluster0.fwudo.mongodb.net/herodb?retryWrites=true&w=majority", 
+        "mongodb+srv://user:user%40123@cluster0.fwudo.mongodb.net/herodb?retryWrites=true&w=majority",
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true 
